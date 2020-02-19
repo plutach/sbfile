@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cornerstonestech.dao.MapFileMapper">
+
+    <resultMap id="ResultMap" type="com.cornerstonestech.model.MapFileModel">
+        <result column="site_id" property="siteId" />
+        <result column="update_dt" property="updateDt" />
+        <result column="filename" property="fileName" />
+    </resultMap>
+    
+    
+   <!-- file upload -->		   
+    <insert id="insertMapFile" parameterType="com.cornerstonestech.model.MapFileModel">
+        INSERT INTO tbmapfile (
+		     site_id
+            ,update_dt
+            ,filename
+        ) VALUES (
+        	 #{siteId}
+	        ,now()
+	        ,#{fileName}
+        )
+    </insert>
+    
+    
+  <!-- file update -->
+    <update id="updateMapFile" parameterType="com.cornerstonestech.model.MapFileModel">
+        UPDATE tbmapfile
+           SET update_dt				= now()
+		      ,filename    			    = #{fileName}
+         WHERE site_id              	= #{siteId}
+    </update>
+    
+   
+      <select id="getMapFileId" resultType="int">
+        SELECT COUNT(*)
+          FROM tbmapfile
+         WHERE site_id    				= #{siteId}        
+    </select>
+    
+    
+  <select id="checkExist" resultType="Boolean">
+        SELECT EXISTS (SELECT 1 FROM tbmapfile WHERE site_id = #{siteId}) 
+  </select>
+   
+    
+  <select id="getfileName" resultType="String">
+        SELECT filename FROM tbmapfile WHERE site_id = #{siteId} 
+  </select>
+
+</mapper>
