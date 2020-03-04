@@ -1,4 +1,4 @@
-package com.cornerstonestech.controller;
+package com.cofile.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.cornerstonestech.common.ReturnCode;
-import com.cornerstonestech.model.MapFileModel;
-import com.cornerstonestech.model.ReturnMsg;
-import com.cornerstonestech.service.ChannelService;
-import com.cornerstonestech.service.CodeService;
-import com.cornerstonestech.service.ConfigServerService;
-import com.cornerstonestech.service.ConfigService;
-import com.cornerstonestech.service.EventLevelService;
-import com.cornerstonestech.service.MapFileService;
+import com.cofile.common.ReturnCode;
+import com.cofile.model.MapFileModel;
+import com.cofile.model.ReturnMsg;
+import com.cofile.service.ChannelService;
+import com.cofile.service.CodeService;
+import com.cofile.service.ConfigServerService;
+import com.cofile.service.ConfigService;
+import com.cofile.service.EventLevelService;
+import com.cofile.service.MapFileService;
 
 @RestController
 @RequestMapping("Map")
