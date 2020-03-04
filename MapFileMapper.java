@@ -1,8 +1,8 @@
-package com.cornerstonestech.dao;
+package com.cofile.dao;
 
 
 import org.apache.ibatis.annotations.Param;
-import com.cornerstonestech.model.MapFileModel;
+import com.cofile.model.MapFileModel;
 
 
 
