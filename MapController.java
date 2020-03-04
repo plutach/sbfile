@@ -51,73 +51,7 @@ public class MapController {
    
     
     
-	/**
-	 * SVC-00101002 : 서버설정정보 추가
-	 * @param model
-	 * @return
-	 */
-/*	@ResponseBody
-	@RequestMapping(value="/1", method={RequestMethod.POST})
-	public ReturnMsg appendServerConfig(MultipartHttpServletRequest request) {
-		ReturnMsg returnMsg = new ReturnMsg();
-		try {
-			String param = request.getParameter("parameter");
-			MultipartFile report = request.getFile("parameter");
-
-			
-			ObjectMapper mapper = new ObjectMapper();
-			//JSON from String to Object
-			MapModel mapModel = mapper.readValue(param, MapModel.class);
-			
-			//맵파일
-			String mapFileNmae = String.format("%s/%s%s", mapModel.getSiteId(), mapModel.getFloorId(), mapModel.getFileExt());
-			
-			String filePath = request.getServletContext().getRealPath("/") + mapFileNmae;
-			
-			report.transferTo(new File(filePath));
-
-			
-			//파라메터파일
-			String paramFileNmae = String.format("%s/%s.param.json", mapModel.getSiteId(), mapModel.getFloorId());
-
-			try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(paramFileNmae))) {
-	            writer.write(param);
-	        } // the file will be automatically closed		
 	
-			returnMsg.setReturnCode(ReturnCode.OK);
-		} catch (Exception ex) {
-			returnMsg.setReturnCode(ReturnCode.ERROR);
-		}
-		
-		return returnMsg;
-	}
-*/
-    
-/*
-    @RequestMapping(value="", method={RequestMethod.GET})
-	public void appendServerConfig(HttpServletResponse response) {
-//		File file = new File ("C:\\temp\\Air.txt");
-		File file = new File (udir);
-        
-        try (InputStream fileInputStream = new FileInputStream(file);
-            OutputStream output = response.getOutputStream();) {
-
-            response.reset();
-
-            response.setContentType("application/octet-stream");
-            response.setContentLength((int) (file.length()));
-
-            response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
-
-            IOUtils.copyLarge(fileInputStream, output);
-            response.flushBuffer();
-        } catch (IOException e) {
-            
-        }
-	}
-	*/
-	
-    
 	/*	file upload */
 
 	@Value("${upload.dir}")
