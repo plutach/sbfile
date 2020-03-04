@@ -1,4 +1,4 @@
-package com.cornerstonestech.model;
+package com.cofile.model;
 
 import java.io.File;
 import java.sql.Timestamp;
