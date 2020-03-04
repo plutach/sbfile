@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cornerstonestech.dao.MapFileMapper">
+<mapper namespace="com.cofile.dao.MapFileMapper">
 
-    <resultMap id="ResultMap" type="com.cornerstonestech.model.MapFileModel">
+    <resultMap id="ResultMap" type="com.cofile.model.MapFileModel">
         <result column="site_id" property="siteId" />
         <result column="update_dt" property="updateDt" />
         <result column="filename" property="fileName" />
@@ -10,7 +10,7 @@
     
     
    <!-- file upload -->		   
-    <insert id="insertMapFile" parameterType="com.cornerstonestech.model.MapFileModel">
+    <insert id="insertMapFile" parameterType="com.cofile.model.MapFileModel">
         INSERT INTO tbmapfile (
 		     site_id
             ,update_dt
@@ -24,7 +24,7 @@
     
     
   <!-- file update -->
-    <update id="updateMapFile" parameterType="com.cornerstonestech.model.MapFileModel">
+    <update id="updateMapFile" parameterType="com.cofile.model.MapFileModel">
         UPDATE tbmapfile
            SET update_dt				= now()
 		      ,filename    			    = #{fileName}
