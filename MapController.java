@@ -52,7 +52,7 @@ public class MapController {
     
     
 	
-	/*	file upload */
+	/* file upload */
 
 	@Value("${upload.dir}")
 	private String udir;
@@ -90,7 +90,7 @@ public class MapController {
 	 
 		/*file download */
 			 
-		  @RequestMapping(value="/download/{siteId}/{fileName:.+}", method= {RequestMethod.GET})
+          @RequestMapping(value="/download/{siteId}/{fileName:.+}", method= {RequestMethod.GET})
 	      public ResponseEntity<InputStreamResource> download(@PathVariable int siteId, @PathVariable String fileName) throws FileNotFoundException { 
 
 
@@ -98,9 +98,9 @@ public class MapController {
 		  final File file = new File(udir + siteId + File.separator + fileName);
 	          return ResponseEntity.ok()
 	          .contentLength(file.length())
-              .contentType(MediaType.APPLICATION_OCTET_STREAM)
-//	          .contentType(MediaType.APPLICATION_PDF)
-          .body(new InputStreamResource(new FileInputStream(file)));
+                  .contentType(MediaType.APPLICATION_OCTET_STREAM)
+	          .contentType(MediaType.APPLICATION_PDF)
+                  .body(new InputStreamResource(new FileInputStream(file)));
 	  
 		  }
 		  
