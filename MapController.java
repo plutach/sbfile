@@ -49,8 +49,6 @@ public class MapController {
     @Autowired
     MapFileService mapFileService;
    
-    
-    
 	
 	/* file upload */
 
@@ -69,21 +67,19 @@ public class MapController {
 			 
 			   try {
 			
-				      File destinationFile = new File(udir + siteId + File.separator + fname);
-				    
-				      inputFile.transferTo(destinationFile);
-		
-				       MapFileModel model = new MapFileModel();
-			           model.setSiteId(siteId);
-			           model.setFileName(fileName);
+			        File destinationFile = new File(udir + siteId + File.separator + fname);
+			        inputFile.transferTo(destinationFile);
+		                MapFileModel model = new MapFileModel();
+			        model.setSiteId(siteId);
+			        model.setFileName(fileName);
 
-                     return mapFileService.storeMapFile(model);
+                                return mapFileService.storeMapFile(model);
 
-				       }
-				    catch (Exception e){    
-				   returnMsg.setReturnCode(ReturnCode.ERROR);
+				}
+			   catch (Exception e){    
+				returnMsg.setReturnCode(ReturnCode.ERROR);
 			       }
-			    return returnMsg;
+			        return returnMsg;
 				 } 
 
 
@@ -94,7 +90,6 @@ public class MapController {
 	      public ResponseEntity<InputStreamResource> download(@PathVariable int siteId, @PathVariable String fileName) throws FileNotFoundException { 
 
 
-				  
 		  final File file = new File(udir + siteId + File.separator + fileName);
 	          return ResponseEntity.ok()
 	          .contentLength(file.length())
@@ -104,15 +99,10 @@ public class MapController {
 	  
 		  }
 		  
-	  
 		  /* call url */
 		  @RequestMapping(value="/{siteId}", method= {RequestMethod.GET})
 		  public ReturnMsg reqMapFileurl(@PathVariable int siteId){
 		  return mapFileService.MapFileurl(siteId);
-	     }
-		  
-		 
-
-		  
+	     }  
 }
 		  
